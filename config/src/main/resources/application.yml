@@ -1,0 +1,15 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:\\\E:\github\config-repo
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
