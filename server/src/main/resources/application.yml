@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: dev1
+---
+spring:
+  profiles: dev1
+  application:
+    name: eureka-peer
+server:
+  port: 8888
+---
+spring:
+  profiles: dev2
+  application:
+    name: eureka-peer
+server:
+  port: 8889
+---
+spring:
+  profiles: dev3
+  application:
+    name: eureka-peer
+server:
+  port: 8890
+---
+eureka:
+  instance:
+    hostname: dev1
+  client:
+    fetch-registry: false
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka,http://localhost:8889/eureka,http://localhost:8890/eureka
+  server:
+    ###当eureka启动时，不能从集群节点中获取instance注册信息，应该等多久
+    wait-time-in-ms-when-sync-empty: 0
+    enable-self-preservation: true
+    peer-eureka-nodes-update-interval-ms: 100000

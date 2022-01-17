@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: client3
+---
+spring:
+  profiles: client1
+  application:
+    name: client1
+server:
+  port: 8891
+---
+spring:
+  profiles: client2
+  application:
+    name: client2
+server:
+  port: 8892
+---
+spring:
+  profiles: client3
+  application:
+    name: client3
+server:
+  port: 8893
+---
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka,http://localhost:8889/eureka,http://localhost:8890/eureka
