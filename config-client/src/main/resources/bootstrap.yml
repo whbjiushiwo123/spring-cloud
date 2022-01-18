@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: eurekaserver
+  cloud:
+    config:
+      name: eurekaserver
+      uri: http://localhost:5000/
+  profiles:
+    active: test
+server:
+  port: 10000
